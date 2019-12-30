@@ -21,10 +21,16 @@ RUN apt-get install curl -y && \
     npm install -g gulp-cli@2.2.0 && \
     npm install -g bower@1.8.8 --allow-root
 
-COPY SenchaCmd-5.0.2.270-linux-x64.run .
-
-RUN chmod +x SenchaCmd-5.0.2.270-linux-x64.run && \
+RUN curl -sL https://cdn.sencha.com/cmd/5.0.2.270/SenchaCmd-5.0.2.270-linux-x64.run.zip -o SenchaCmd-5.0.2.270-linux-x64.run.zip && \
+    unzip SenchaCmd-5.0.2.270-linux-x64.run.zip && \
+    chmod +x SenchaCmd-5.0.2.270-linux-x64.run && \
+    rm -f SenchaCmd-5.0.2.270-linux-x64.run.zip && \
     ./SenchaCmd-5.0.2.270-linux-x64.run --mode unattended
+
+# COPY SenchaCmd-5.0.2.270-linux-x64.run .
+
+# RUN chmod +x SenchaCmd-5.0.2.270-linux-x64.run && \
+#     ./SenchaCmd-5.0.2.270-linux-x64.run --mode unattended
 
 COPY android-sdk /android-sdk
 COPY gradle-4.4 /gradle-4.4
