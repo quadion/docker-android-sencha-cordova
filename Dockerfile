@@ -27,12 +27,9 @@ RUN curl -sL https://cdn.sencha.com/cmd/5.0.2.270/SenchaCmd-5.0.2.270-linux-x64.
     rm -f SenchaCmd-5.0.2.270-linux-x64.run.zip && \
     ./SenchaCmd-5.0.2.270-linux-x64.run --mode unattended
 
-# COPY SenchaCmd-5.0.2.270-linux-x64.run .
-
-# RUN chmod +x SenchaCmd-5.0.2.270-linux-x64.run && \
-#     ./SenchaCmd-5.0.2.270-linux-x64.run --mode unattended
+RUN curl -sL https://services.gradle.org/distributions/gradle-4.4-bin.zip -o gradle-4.4-bin.zip && \
+    unzip gradle-4.4-bin.zip
 
 COPY android-sdk /android-sdk
-COPY gradle-4.4 /gradle-4.4
 
 RUN apt-get install zipalign -y
