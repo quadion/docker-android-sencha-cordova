@@ -14,7 +14,8 @@ RUN apt-get install curl -y && \
     gem install sass && \
     gem install compass && \
     npm install -g gulp-cli@2.2.0 && \
-    npm install -g bower@1.8.8 --allow-root
+    npm install -g bower@1.8.8 --allow-root && \
+	apt-get install zipalign -y
 
 # Download and install Sencha
 RUN curl -sL https://cdn.sencha.com/cmd/5.0.2.270/SenchaCmd-5.0.2.270-linux-x64.run.zip -o SenchaCmd-5.0.2.270-linux-x64.run.zip && \
